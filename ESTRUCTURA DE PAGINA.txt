@@ -1,0 +1,22 @@
+gestion-torneos/
+│
+├── frontend/
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   │   └── script.js
+│   └── html/
+│       ├── index.html
+│       ├── crear_torneo.html
+│       └── torneo_detalle.html
+│
+├── backend/
+│   ├── models/
+│   ├── controllers/
+│   ├── routes/
+│   ├── database/
+│   │   └── db.js
+│   └── server.js
+│
+├── .gitignore
+└── README.md

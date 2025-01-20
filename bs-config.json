@@ -1,0 +1,9 @@
+{
+  "server": {
+    "baseDir": "C:/Users/Mauro/Documents/Fulbo/gestion-torneos/frontend/html",
+    "routes": {
+      "/css": "C:/Users/Mauro/Documents/Fulbo/gestion-torneos/frontend/css",
+      "/js": "C:/Users/Mauro/Documents/Fulbo/gestion-torneos/frontend/js"
+    }
+  }
+}

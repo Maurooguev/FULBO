@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario y Tabla de Posiciones</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">BARR10</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar por nombre o ID de torneo...">
+            <button type="submit">Buscar</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="torneos.html">Torneos</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="cuenta.html">Cuenta</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Calendario de Fechas y Tabla de Posiciones</h2>
+        <section id="calendarSection">
+            <h3>Calendario de Fechas</h3>
+            <div id="calendarContainer">
+                <!-- Calendario cargado dinámicamente desde JS -->
+            </div>
+        </section>
+        <section id="standingsSection">
+            <h3>Tabla de Posiciones</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Equipo</th>
+                        <th>Puntos</th>
+                        <th>Partidos Jugados</th>
+                        <th>Partidos Ganados</th>
+                        <th>Partidos Empatados</th>
+                        <th>Partidos Perdidos</th>
+                        <th>Diferencia de Gol</th>
+                    </tr>
+                </thead>
+                <tbody id="standingsTable">
+                    <!-- Aquí se llenarán los datos -->
+                </tbody>
+            </table>
+            
+        </section>
+        <button id="saveTournamentButton">Guardar Torneo</button>
+
+    </main>
+    
+    <footer>
+        <div class="contact-info">
+            <p>Contacto: contacto@barr10.com</p>
+        </div>
+        <div class="legal-links">
+            <a href="privacy.html">Política de Privacidad</a>
+            <a href="terms.html">Términos y Condiciones</a>
+        </div>
+        <div class="social-media">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+    </footer>
+    <script src="js/finalPage.js"></script>
+</body>
+</html>

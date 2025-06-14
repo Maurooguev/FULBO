@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurar Torneo - BARR10</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">BARR10</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar por nombre o ID de torneo...">
+            <button type="submit">Buscar</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="torneos.html">Torneos</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="cuenta.html">Cuenta</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="configure-tournament">
+            <h2>Configurar Torneo</h2>
+
+            <div class="tournament-details">
+                <h3>Detalles del Torneo</h3>
+                <form id="tournamentDetailsForm">
+                    <div class="form-group">
+                        <label for="tournamentName">Nombre del Torneo</label>
+                        <input type="text" id="tournamentName" name="tournamentName" placeholder="Nombre del torneo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tournamentDescription">Descripción del Torneo</label>
+                        <textarea id="tournamentDescription" name="tournamentDescription" placeholder="Descripción del torneo"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <div class="tournament-format">
+                <h3>Selecciona el formato del torneo</h3>
+                <input type="radio" id="round-robin" name="tournamentFormat" value="round-robin" checked>
+                <label for="round-robin">Formato de Tabla (Round Robin)</label>
+            
+                <input type="radio" id="elimination" name="tournamentFormat" value="elimination">
+                <label for="elimination">Eliminación Directa (Mata-Mata)</label>
+            </div>
+            
+            <div id="team-inputs" class="team-inputs">
+                <h3>Agregar Equipos</h3>
+                <form id="teamForm">
+                    <div class="form-group">
+                        <label for="teamName">Nombre del Equipo</label>
+                        <input type="text" id="teamName" name="teamName" placeholder="Nombre del equipo">
+                    </div>
+                    <button type="button" id="addTeamBtn">Agregar Equipo</button>
+                </form>
+                
+                <h3>Equipos Añadidos</h3>
+                <table id="teamsTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre del Equipo</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Los equipos se añadirán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Botón "Guardar torneo y continuar" para pasar a la siguiente página -->
+            <button type="button" id="saveTournamentBtn">Guardar Torneo y Continuar</button>
+
+        </section>
+    </main>
+
+    <script>
+        document.getElementById("finishTournamentButton").addEventListener("click", () => {
+            const tournamentName = document.getElementById("tournamentName").value.trim();
+            const tournamentLocation = document.getElementById("tournamentLocation").value.trim();
+            const tournamentTeams = parseInt(document.getElementById("tournamentTeams").value, 10);
+    
+            if (tournamentName && tournamentLocation && tournamentTeams > 0) {
+                // Crear un nuevo torneo
+                const newTournament = {
+                    id: Date.now(), // Usamos timestamp como ID único
+                    name: tournamentName,
+                    location: tournamentLocation,
+                    teams: tournamentTeams,
+                };
+    
+                // Guardar en localStorage
+                const createdTournaments = JSON.parse(localStorage.getItem("createdTournaments")) || [];
+                createdTournaments.push(newTournament);
+                localStorage.setItem("createdTournaments", JSON.stringify(createdTournaments));
+    
+                // Redirigir a torneos.html
+                alert("Torneo configurado y guardado correctamente.");
+                window.location.href = "torneos.html";
+            } else {
+                alert("Por favor, completa todos los campos correctamente.");
+            }
+        });
+    </script>
+    
+
+    <footer>
+        <div class="contact-info">
+            <p>Contacto: contacto@barr10.com</p>
+        </div>
+        <div class="legal-links">
+            <a href="privacy.html">Política de Privacidad</a>
+            <a href="terms.html">Términos y Condiciones</a>
+        </div>
+        <div class="social-media">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="js/configurarTorneo.js"></script>
+</body>
+</html>

@@ -1,0 +1,740 @@
+/* Variables de color */
+:root {
+    --color-background: #0f0f0f; /* Negro para el fondo general de la página */
+    --color-primary: #00b33c; /* Verde brillante para los elementos principales */
+    --color-primary-dark: #00802b; /* Verde oscuro para estados hover o elementos secundarios */
+    --color-header-background: #1a1a1a; /* Gris oscuro para el fondo del header */
+    --color-header-text: #f5f5f5; /* Gris claro para el texto del header */
+    --color-footer-background: #1a1a1a; /* Gris oscuro para el fondo del footer */
+    --color-footer-text: #f5f5f5; /* Gris claro para el texto del footer */
+    --color-text: #e0e0e0; /* Gris claro para el texto general */
+    --color-text-light: #b3b3b3; /* Gris aún más claro para textos secundarios */
+    --color-news-link: #00cc66; /* Verde claro para enlaces en noticias */
+    --color-card-background: #1c1c1c; /* Gris muy oscuro para las tarjetas */
+    --color-card-shadow: rgba(0, 0, 0, 0.5); /* Sombra más intensa para las tarjetas */
+    --color-card-shadow-hover: rgba(0, 0, 0, 0.7); /* Sombra más intensa al pasar el ratón */
+    --color-border: #333; /* Gris oscuro para bordes */
+}
+
+/* Estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+/* Estilo del header */
+
+header {
+    background-color: var(--color-header-background);
+    color: var(--color-header-text);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+header .logo {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+header .search-bar {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    margin: 0 50px;
+}
+
+header .search-bar input {
+    padding: 10px 15px;
+    border-radius: 25px 0 0 25px;
+    border: 2px solid var(--color-primary);
+    outline: none;
+    font-size: 16px;
+    width: 500px;
+    transition: width 0.4s ease, border-color 0.3s ease;
+}
+
+header .search-bar input:focus {
+    border-color: var(--color-primary-dark);
+}
+
+header .search-bar button {
+    padding: 10px 20px;
+    border-radius: 0 25px 25px 0;
+    border: 2px solid var(--color-primary);
+    background-color: var(--color-primary);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+header .search-bar button:hover {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+}
+
+header nav {
+    flex: 1;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: var(--color-header-text);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+
+/* Estilo de la sección de torneos */
+.featured, .tournament-list, .calendar {
+    padding: 20px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tournament-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+    gap: 20px;
+}
+
+.tournament-item, .news-item {
+    background-color: var(--color-card-background);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px var(--color-card-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.tournament-item:hover, .news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px var(--color-card-shadow-hover);
+}
+
+.tournament-item h3, .news-item h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--color-text);
+}
+
+.tournament-item p, .news-item p {
+    font-size: 16px;
+    color: var(--color-text-light);
+}
+
+.news-item a {
+    color: var(--color-news-link);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.news-item a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo de la tabla de posiciones en los detalles del torneo */
+.tournament-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+.tournament-details th, .tournament-details td {
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    text-align: center;
+    color: var(--color-text);
+}
+
+.tournament-details th {
+    background-color: var(--color-primary);
+    color: #fff;
+    font-weight: bold;
+}
+
+.tournament-details td {
+    background-color: var(--color-card-background);
+}
+
+.tournament-details tr:nth-child(even) td {
+    background-color: #2a2a2a;
+}
+
+.tournament-details .read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.tournament-details .read-more:hover {
+    text-decoration: underline;
+}
+
+.tournament-details .favorite-btn {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.tournament-details .favorite-btn:hover {
+    color: var(--color-primary-dark);
+}
+
+/* Estilo del calendario */
+.calendar-content h3 {
+    font-size: 20px;
+    color: var(--color-text);
+}
+
+.calendar-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.calendar-content ul li {
+    font-size: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Estilo del footer */
+footer {
+    background-color: var(--color-footer-background);
+    color: var(--color-footer-text);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .contact-info,
+footer .legal-links,
+footer .social-media {
+    margin: 0;
+}
+
+footer .contact-info p {
+    margin: 0;
+}
+
+footer .legal-links a,
+footer .social-media a {
+    color: var(--color-footer-text);
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+footer .legal-links a:hover,
+footer .social-media a:hover {
+    color: var(--color-primary);
+}
+
+footer .social-media a {
+    font-size: 22px;
+}
+
+/* Estilo de las secciones principales */
+main {
+    padding: 20px 30px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenido del main */
+}
+
+section {
+    margin: 0 auto;
+}
+
+/* Estilo específico para cada sección */
+.account, .news-results {
+    padding: 20px;
+    background-color: var(--color-card-background);
+    border-radius: 15px;
+    box-shadow: 0 6px 12px var(--color-card-shadow);
+}
+
+.account h2, .news-results h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--color-text);
+}
+
+.account .profile-info p, .news-results .news-item p {
+    font-size: 16px;
+    color: var(--color-text-light);
+}
+
+.account .account-actions a, .news-results .news-item a {
+    display: block;
+    font-size: 16px;
+    color: var(--color-primary);
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.account .account-actions a:hover, .news-results .news-item a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo de la página de torneos */
+.tournaments {
+    padding: 20px;
+}
+
+.create-tournament {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--color-card-background);
+    border-radius: 15px;
+    box-shadow: 0 6px 12px var(--color-card-shadow);
+}
+
+.create-tournament h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--color-text);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid var(--color-border);
+    font-size: 16px;
+    outline: none;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--color-primary);
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#Torneo 
+
+/* Estilos generales para el formulario */
+.create-tournament {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+.create-tournament h3 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Ocultar por defecto las opciones adicionales */
+.tournament-options {
+    display: none;
+}
+
+/* Sección visible para tabla */
+#tableOptions {
+    display: block;
+}
+
+/* Sección visible para mata-mata */
+#mataMataOptions {
+    display: none;
+}
+
+/* Estilos para la sección de configuración del torneo */
+.configure-tournament {
+    background-color: #1a1a1a; /* Fondo oscuro */
+    color: #e0e0e0; /* Color de texto claro */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.configure-tournament h2,
+.configure-tournament h3 {
+    color: #4caf50; /* Verde para los encabezados */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #4caf50; /* Bordes verdes */
+    border-radius: 4px;
+    background-color: #2c2c2c; /* Fondo oscuro para inputs */
+    color: #e0e0e0; /* Color de texto claro */
+}
+
+input[type="text"]:focus {
+    border-color: #81c784; /* Verde más claro al enfocar */
+}
+
+button {
+    background-color: #4caf50; /* Verde */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #388e3c; /* Verde más oscuro al pasar el mouse */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #4caf50; /* Bordes verdes */
+}
+
+th {
+    background-color: #2c2c2c; /* Fondo oscuro para el encabezado */
+    color: #e0e0e0; /* Color de texto claro */
+}
+
+tr:nth-child(even) {
+    background-color: #3a3a3a; /* Color alternativo para filas */
+}
+
+.bracket-container {
+    margin-top: 20px;
+    background-color: #2c2c2c; /* Fondo para las llaves */
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.round {
+    margin-bottom: 15px;
+}
+
+.matchup {
+    padding: 10px;
+    border: 1px solid #4caf50; /* Bordes verdes */
+    margin: 5px 0;
+    background-color: #3a3a3a; /* Color de fondo para los partidos */
+    border-radius: 4px;
+}
+
+/* Estilos para la selección del formato del torneo */
+.tournament-format {
+    display: flex;
+    justify-content: space-around; /* Espaciado uniforme entre opciones */
+    margin: 20px 0;
+}
+
+
+.tournament-format label {
+    background-color: var(--color-card-background); /* Fondo gris muy oscuro para las tarjetas */
+    border: 2px solid var(--color-primary); /* Borde verde brillante */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 15px;
+    width: 45%; /* Ancho de cada tarjeta */
+    text-align: center; /* Centrar el texto */
+    transition: background-color 0.3s, border-color 0.3s; /* Transiciones suaves */
+    cursor: pointer; /* Cambiar cursor a pointer */
+    color: var(--color-text); /* Color de texto gris claro */
+}
+
+.tournament-format input[type="radio"] {
+    display: none; /* Ocultar los botones de radio */
+}
+
+.tournament-format input[type="radio"]:checked + label {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary-dark);
+    color: white;
+    font-weight: bold;
+}
+
+.tournament-format label:hover {
+    background-color: #2a2a2a; /* Cambiar fondo a un gris más claro en hover */
+    border-color: var(--color-primary-dark); /* Cambiar borde a verde oscuro en hover */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: var(--color-text);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-card-background);
+    color: var(--color-text);
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.next-button {
+    float: right; /* Mueve el botón a la derecha */
+    background-color: var(--color-primary); /* Color verde brillante */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Añade espacio superior */
+}
+
+.next-button:hover {
+    background-color: var(--color-primary-dark); /* Cambia al verde oscuro al hacer hover */
+}
+
+/* Estilos para la página de configuración del torneo 2 */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--color-card-background);
+    border-radius: 8px;
+}
+
+h2 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+button, input, select {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-border);
+    font-size: 1rem;
+}
+
+button.next-button {
+    float: right;
+    background-color: var(--color-primary);
+    color: white;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: var(--color-text);
+}
+
+.player-inputs, .tournament-awards, .tournament-rules {
+    margin-top: 15px;
+}
+
+#matchList, #playerList, #awardsList {
+    margin-top: 15px;
+}
+
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    /* Ajuste del header */
+    header {
+        display: flex; /* Usamos flexbox para alinear elementos */
+        justify-content: space-between; /* Espacio entre logo y menú */
+        align-items: center; /* Alineamos verticalmente */
+        padding: 10px; /* Añadimos un poco de padding */
+        margin-top: 20px; /* Margen superior para moverlo hacia abajo */
+        flex-wrap: wrap; /* Permite que los elementos se ajusten */
+    }
+
+    header .logo {
+        font-size: 22px;
+        margin: 0; /* Sin margen inferior */
+    }
+
+    header nav ul {
+        display: flex; /* Usamos flexbox para el menú */
+        justify-content: space-between; /* Espacio entre los elementos */
+        padding: 0; /* Sin padding en la lista */
+        list-style: none; /* Quitamos los puntos de la lista */
+        margin: 0; /* Sin margen en la lista */
+    }
+
+    header nav ul li {
+        margin: 0 10px; /* Espacio entre los elementos del menú */
+    }
+
+    .search-bar {
+        display: flex; /* Usamos flexbox para la barra de búsqueda */
+        align-items: center; /* Alineamos verticalmente */
+        width: 100%; /* Ocupa el ancho completo */
+        margin-top: 10px; /* Espacio superior */
+    }
+
+    .search-bar input {
+        flex: 1; /* Toma el espacio restante */
+        padding: 5px; /* Espacio interno */
+        border: 1px solid #ccc; /* Borde más delgado */
+        border-radius: 5px; /* Bordes redondeados */
+    }
+
+    .search-bar button {
+        padding: 5px 10px; /* Espacio interno del botón */
+        margin-left: 5px; /* Espacio a la izquierda del botón */
+        background-color: #4CAF50; /* Color de fondo atractivo */
+        color: white; /* Color del texto */
+        border: none; /* Sin borde */
+        border-radius: 5px; /* Bordes redondeados */
+        cursor: pointer; /* Cambia el cursor al pasar */
+        transition: background-color 0.3s; /* Efecto de transición */
+    }
+
+    .search-bar button:hover {
+        background-color: #45a049; /* Color de fondo al pasar el ratón */
+    }
+
+    /* Ajuste de la sección de torneos y noticias */
+    .tournament-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    /* Ajustes en la tabla de posiciones */
+    .tournament-details table, .configure-tournament table {
+        font-size: 14px;
+    }
+
+    /* Botón de favorito en la página de detalles del torneo */
+    .tournament-details .favorite-btn {
+        top: 10px;
+        right: 10px;
+    }
+
+    /* Ajuste de la selección del formato del torneo */
+    .tournament-format label {
+        width: 100%; /* Alinear tarjetas de formato a pantalla completa */
+        margin-bottom: 10px;
+    }
+}
+
+/* Media query para pantallas medianas (tablets) */
+@media (max-width: 992px) {
+    .tournament-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas de tablet */
+    }
+
+    .create-tournament, .configure-tournament, .account, .news-results {
+        padding: 15px;
+    }
+
+    /* Ajuste de fuentes y tamaños en la tabla de posiciones */
+    th, td {
+        font-size: 14px;
+    }
+}

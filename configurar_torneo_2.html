@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurar Partidos - BARR10</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">BARR10</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="torneos.html">Torneos</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="cuenta.html">Cuenta</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Resumen del Torneo -->
+        <section class="tournament-summary">
+            <h2>Resumen del Torneo</h2>
+            <p><strong>Nombre:</strong> <span id="summaryTournamentName"></span></p>
+            <p><strong>Descripción:</strong> <span id="summaryTournamentDescription"></span></p>
+            <p><strong>Formato:</strong> <span id="summaryTournamentFormat"></span></p>
+        </section>
+
+        <!-- Equipos Participantes -->
+        <section class="participating-teams">
+            <h3>Equipos Participantes</h3>
+            <ul id="teamsList">
+                <!-- Los equipos se mostrarán aquí -->
+            </ul>
+        </section>
+
+        <!-- Configuración del Calendario -->
+        <section class="calendar-setup">
+            <h3>Configurar Calendario de Partidos</h3>
+            <button id="generateRandomCalendarBtn">Generar Calendario Aleatorio</button>
+            <div id="calendarDisplay">
+                <!-- Aquí se mostrarán los partidos generados -->
+            </div>
+            <div class="config-torneo-footer">
+                <button class="continuar-btn" onclick="location.href='agregar_jugadores.html'">Continuar</button>
+            </div>
+            
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="contact-info">
+            <p>Contacto: contacto@barr10.com</p>
+        </div>
+        <div class="legal-links">
+            <a href="privacy.html">Política de Privacidad</a>
+            <a href="terms.html">Términos y Condiciones</a>
+        </div>
+    </footer>
+
+    <script src="js/configurarTorneo2.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BARR10 - Calendario</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- FullCalendar CSS -->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.min.css' rel='stylesheet' />
+    <style>
+        #calendar {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">BARR10</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar por nombre o ID de torneo...">
+            <button type="submit">Buscar</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="torneos.html">Torneos</a></li>
+                <li><a href="calendario.html" class="active">Calendario</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="cuenta.html">Mi Cuenta</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="calendar-section">
+            <h2>Calendario de Torneos</h2>
+            <!-- Contenedor del calendario -->
+            <div id='calendar'></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="contact-info">
+            <p>Contacto: info@barr10.com</p>
+        </div>
+        <div class="legal-links">
+            <a href="#">Términos de uso</a>
+            <a href="#">Política de privacidad</a>
+        </div>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <!-- FullCalendar JS -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.js'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: [
+                    {
+                        title: 'Torneo Internacional A',
+                        start: '2024-10-15',
+                        description: 'Ubicación: Buenos Aires, Argentina'
+                    },
+                    {
+                        title: 'Campeonato Nacional B',
+                        start: '2024-10-22',
+                        description: 'Ubicación: Ciudad de México, México'
+                    },
+                    {
+                        title: 'Torneo Regional C',
+                        start: '2024-10-30',
+                        description: 'Ubicación: Lima, Perú'
+                    }
+                ],
+                eventContent: function(arg) {
+                    var description = arg.event.extendedProps.description;
+                    return { html: `<b>${arg.event.title}</b><br>${description}` };
+                }
+            });
+
+            calendar.render();
+        });
+    </script>
+</body>
+</html>

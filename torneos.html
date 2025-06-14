@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BARR10 - Torneos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/torneos.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">BARR10</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar por nombre o ID de torneo...">
+            <button type="submit">Buscar</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="torneos.html" class="active">Torneos</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="cuenta.html">Cuenta</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="tournaments">
+            <h2>Torneos</h2>
+
+            <!-- Sección de Torneos Favoritos -->
+            <section id="favoriteTournamentsSection">
+                <h3 class="section-title">Torneos Favoritos</h3>
+                <div id="favoriteTournamentsContainer" class="tournaments-container">
+                    <!-- Torneos favoritos dinámicamente cargados -->
+                </div>
+            </section>
+
+            <!-- Sección de Torneos Creados -->
+            <section id="myTournamentsSection">
+                <h3 class="section-title">Torneos Creados</h3>
+                <div id="myTournamentsContainer" class="tournaments-container">
+                    <!-- Torneos creados dinámicamente cargados -->
+                </div>
+            </section>
+
+            <!-- Crear Torneo -->
+            <section id="createTournamentSection">
+                <h3 class="section-title">Crear un Torneo</h3>
+                <p>Para crear un torneo, haz clic en el botón de abajo y sigue los pasos para configurarlo.</p>
+                <div class="create-tournament">
+                    <button id="createTournamentButton" onclick="location.href='configurar_torneo.html'">Crear Torneo</button>
+                </div>
+            </section>
+
+            <!-- Crear Torneo Rápido -->
+            <section id="createTournamentFormSection">
+                <h3 class="section-title">Crear Torneo Rápido</h3>
+                <form id="createTournamentForm">
+                    <label for="tournamentName">Nombre del Torneo:</label>
+                    <input type="text" id="tournamentName" required>
+                    <label for="tournamentLocation">Ubicación:</label>
+                    <input type="text" id="tournamentLocation" required>
+                    <label for="tournamentTeams">Cantidad de Equipos:</label>
+                    <input type="number" id="tournamentTeams" min="2" required>
+                    <button type="submit">Crear</button>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <div class="contact-info">
+            <p>Contacto: contacto@barr10.com</p>
+        </div>
+        <div class="legal-links">
+            <a href="privacy.html">Política de Privacidad</a>
+            <a href="terms.html">Términos y Condiciones</a>
+        </div>
+        <div class="social-media">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
